@@ -42,6 +42,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
               Text(
                 "url: ${movie.imageUrl}",
               ),
+              Text("Date Created: ${movie.dateCreated.toIso8601String()}"),
               isUrlValid ? Image.network(movie.imageUrl) : const SizedBox(),
             ],
           )),
@@ -50,20 +51,19 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
 
   Widget editButton() => IconButton(
       icon: const Icon(Icons.edit_outlined),
-      onPressed: () async {
+      onPressed: () {
         if (isLoading) return;
 
-        await Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => EditMoviePage(movie: movie),
-        ));
-
-        Navigator.of(context).pop();
+        Navigator.of(context)
+            .push(MaterialPageRoute(
+              builder: (context) => EditMoviePage(movie: movie),
+            ))
+            .then((context) => Navigator.of(context).pop());
       });
   Widget deleteButton() => IconButton(
         icon: const Icon(Icons.delete),
-        onPressed: () async {
-          await MovieDatabase.instance.delete(widget.movie?.id ?? 0);
-
+        onPressed: () {
+          MovieDatabase.instance.delete(widget.movie?.id ?? 0);
           Navigator.of(context).pop();
         },
       );

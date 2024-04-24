@@ -43,9 +43,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Future<Null> reloadMovies() async {
+      final movies = await MovieDatabase.instance.getAll();
+      setState(() {
+        _movies = movies;
+        isLoading = false;
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Movies'),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              _loadMovies();
+            },
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -67,6 +83,7 @@ class _HomePageState extends State<HomePage> {
                 final movie = _movies[index];
                 return MovieCardWidget(
                   movie: movie,
+                  onPressed: reloadMovies(),
                 );
               },
             ),
