@@ -3,5 +3,3 @@
 ![2](https://media.discordapp.net/attachments/221887784108032001/1232639507631702036/image.png?ex=662a307f&is=6628deff&hm=77f4087ef09be49158bb46348e7889b03d1106cdca3533d40560b62ee5c45ef4&=&format=webp&quality=lossless&width=502&height=1016)
 
 ![3](https://media.discordapp.net/attachments/221887784108032001/1232639354518900806/image.png?ex=662a305b&is=6628dedb&hm=8c3327ff1692fdf0622789cf675b01dab22d1ed5d548ef5e701a0eceace7e28b&=&format=webp&quality=lossless&width=660&height=1016)
-
-//errornya lupa refresh dari db habis update & delete
