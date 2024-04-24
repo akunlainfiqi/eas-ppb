@@ -27,7 +27,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     bool isUrlValid =
         movie.imageUrl.isNotEmpty && Uri.parse(movie.imageUrl).host.isNotEmpty;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(actions: [editButton(), deleteButton()]),
       body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
